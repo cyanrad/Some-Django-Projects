@@ -1,0 +1,17 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+{{title}}
+{% endblock %}
+
+{% block body %}
+<h1>{{title}}</h1>
+<hr>
+<p>
+    {% autoescape off %}
+    {{ markdown}}
+    {% endautoescape %}
+</p>
+
+<a href="{% url 'edit' title%}">[Edit]</a>
+{% endblock %}

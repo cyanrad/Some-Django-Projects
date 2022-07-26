@@ -1,0 +1,12 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+{{title}}
+{% endblock %}
+
+{% block body %}
+<p><b>Wikipidia does not have an article with this exact name</b></p>
+<ul>
+    <li>create page: <a href="{% url 'edit' title%}">{{ title }}</a></li>
+</ul>
+{% endblock %}

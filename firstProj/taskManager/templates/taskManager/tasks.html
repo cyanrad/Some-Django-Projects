@@ -1,0 +1,15 @@
+{% extends "taskManager/layout.html" %}
+{% block body %}
+<h1>{{user}}'s tasks</h1>
+<ul>
+    {% for task in tasks %}
+    <li>{{ task }}</li>
+    {% endfor %}
+</ul>
+<form action="{% url 'loadTasks' user%}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit">
+</form>
+
+{% endblock %}

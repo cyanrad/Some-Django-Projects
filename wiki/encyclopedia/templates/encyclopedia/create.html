@@ -1,0 +1,21 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+Creating New Entry
+{% endblock %}
+
+{% block body %}
+<h1 style="font-size: 30px;">Creating: New Entry</h1>
+<form action="{% url 'create' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="title" placeholder="New Title" value="{{title}}">
+    {% if title_conflict == True %}
+    <br>
+    <p style="color: red;"><a href="{url 'wikipage' title}">{{Title}}</a> Already Exists or field is empty</p>
+    {% endif %}
+    <br>
+    <textarea name="page_content" rows="4" cols="100" style="font-size: 15px" placeholder="New Text">{{text}}</textarea>
+    <br>
+    <input type="submit">
+</form>
+{% endblock %}
